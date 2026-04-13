@@ -3,237 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hakkımızda — Cozy English</title>
+  <title>Topluluk — Cozy English</title>
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ── ABOUT HERO ── */
-    .about-hero {
-      padding: 5rem 2rem 0;
-      background: var(--cream);
-    }
-    .about-hero-inner {
-      max-width: 1140px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: start;
-      padding-bottom: 5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .about-eyebrow {
-      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .about-hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 700; line-height: 1.15;
-      color: var(--ink); letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-    .about-hero h1 em { font-style: italic; color: var(--forest); }
-    .about-lead {
-      font-size: 1.0625rem; line-height: 1.8;
-      color: var(--ink-light); margin-bottom: 2rem;
-    }
-    .credential-row {
-      display: flex; flex-wrap: wrap; gap: 0.75rem;
-    }
-    .cred-tag {
-      background: var(--forest-pale);
-      color: var(--forest);
-      border: 1px solid rgba(44,74,62,0.2);
-      border-radius: 20px;
-      font-size: 0.8125rem; font-weight: 500;
-      padding: 5px 14px;
-    }
-
-    /* ── PHOTO SIDE ── */
-    .about-photo-wrap {
-      position: sticky; top: 88px;
-    }
-    .about-photo {
+    .page-hero {
       background: var(--forest);
-      border-radius: 14px;
-      aspect-ratio: 4/5;
-      overflow: hidden;
-      position: relative;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative; overflow: hidden;
     }
-    .photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      background: linear-gradient(160deg, var(--forest) 0%, #1a3129 100%);
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(184,137,58,0.18) 0%, transparent 65%);
     }
-    .photo-initials {
+    .page-hero-inner { position: relative; z-index: 1; }
+    .page-hero .section-label { color: var(--gold-light); margin-bottom: 1rem; }
+    .page-hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4rem; font-weight: 400; font-style: italic;
-      color: rgba(255,255,255,0.2);
-      margin-bottom: 1rem;
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      font-weight: 700; font-style: italic;
+      color: var(--white); line-height: 1.15;
+      margin-bottom: 1.25rem;
     }
-    .photo-note {
-      font-size: 0.8125rem; color: rgba(255,255,255,0.3);
-      text-align: center; padding: 0 2rem;
-      line-height: 1.6;
-    }
-    .about-caption {
-      margin-top: 1.25rem;
-      font-size: 0.8125rem; color: var(--ink-light);
-      text-align: center; line-height: 1.6;
+    .page-hero p {
+      font-size: 1.0625rem; color: rgba(255,255,255,0.65);
+      max-width: 560px; margin: 0 auto; line-height: 1.75;
     }
 
-    /* ── ORIGIN STORY ── */
-    .story-section {
-      padding: 5rem 0;
+    /* ── TABS ── */
+    .tab-bar {
       background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 68px; z-index: 50;
     }
-    .story-inner {
-      max-width: 780px; margin: 0 auto;
+    .tab-bar-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; gap: 0;
+      padding: 0 2rem;
     }
-    .story-inner .section-label { text-align: center; display: block; }
-    .story-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.75rem, 3vw, 2.375rem);
-      font-weight: 700;
-      color: var(--ink); line-height: 1.2;
-      letter-spacing: -0.02em;
-      text-align: center; margin-bottom: 3rem;
+    .tab-btn {
+      padding: 1rem 1.5rem;
+      background: none; border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 400;
+      color: var(--ink-light); cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      margin-bottom: -1px;
     }
-    .story-block {
-      display: grid; grid-template-columns: 2px 1fr;
-      gap: 2rem; margin-bottom: 2.5rem;
+    .tab-btn:hover { color: var(--forest); }
+    .tab-btn.active {
+      color: var(--forest); font-weight: 500;
+      border-bottom-color: var(--gold);
     }
-    .story-line {
-      background: var(--gold);
-      opacity: 0.35;
-      border-radius: 2px;
-    }
-    .story-text {
-      font-size: 1rem; line-height: 1.85; color: var(--ink-light);
-    }
-    .story-text strong { color: var(--ink); font-weight: 500; }
 
-    /* ── EDGE SECTION ── */
-    .edge-section {
-      padding: 5rem 0;
-      background: var(--cream);
+    /* ── TAB PANELS ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── BLOG ── */
+    .blog-section { padding: 4rem 0; background: var(--cream); }
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
-    .edge-grid {
+    .blog-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: all 0.25s;
+    }
+    .blog-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-strong);
+    }
+    .blog-card-img {
+      height: 140px;
+      background: var(--forest);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .blog-card-img.gold { background: var(--gold); }
+    .blog-card-img.cream { background: var(--cream-dark); }
+    .blog-card-img-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-style: italic;
+      color: rgba(255,255,255,0.25);
+    }
+    .blog-tag {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(0,0,0,0.3);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .blog-body { padding: 1.5rem; }
+    .blog-meta {
+      font-size: 0.75rem; color: var(--ink-light);
+      margin-bottom: 0.5rem;
+    }
+    .blog-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem; font-weight: 500;
+      color: var(--ink); line-height: 1.35; margin-bottom: 0.75rem;
+    }
+    .blog-card p {
+      font-size: 0.8125rem; line-height: 1.7; color: var(--ink-light);
+    }
+    .blog-soon {
+      text-align: center; padding: 3rem;
+      background: var(--cream-dark);
+      border-radius: 12px; margin-top: 1.5rem;
+    }
+    .blog-soon p { font-size: 0.9375rem; color: var(--ink-light); line-height: 1.7; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-section { padding: 4rem 0; background: var(--cream); }
+    .testi-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-    .edge-card {
+    .testi-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2rem;
-      display: grid; grid-template-columns: 48px 1fr;
-      gap: 1.25rem;
-      align-items: start;
       transition: all 0.2s;
     }
-    .edge-card:hover {
-      border-color: var(--border-strong);
-      box-shadow: var(--shadow);
-    }
-    .edge-num {
+    .testi-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+    .testi-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 2.25rem; font-weight: 400; font-style: italic;
-      color: var(--gold); opacity: 0.4; line-height: 1;
+      font-size: 2.5rem; font-style: italic;
+      color: var(--gold); opacity: 0.4;
+      line-height: 1; margin-bottom: 0.75rem;
     }
-    .edge-card h4 {
-      font-size: 0.9375rem; font-weight: 500;
-      color: var(--ink); margin-bottom: 0.5rem;
+    .testi-text {
+      font-size: 0.9375rem; line-height: 1.75;
+      color: var(--ink-mid); margin-bottom: 1.5rem;
+      font-style: italic;
     }
-    .edge-card p {
-      font-size: 0.875rem; line-height: 1.7; color: var(--ink-light);
+    .testi-author {
+      display: flex; align-items: center; gap: 12px;
     }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--forest-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.875rem; font-weight: 500; color: var(--forest);
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 0.875rem; font-weight: 500; color: var(--ink); }
+    .testi-role { font-size: 0.8125rem; color: var(--ink-light); margin-top: 1px; }
+    .testi-placeholder {
+      text-align: center; padding: 3rem;
+      background: var(--cream-dark); border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+    .testi-placeholder p { font-size: 0.9375rem; color: var(--ink-light); line-height: 1.7; }
 
-    /* ── VALUES ── */
-    .values-section {
-      padding: 5rem 0;
-      background: var(--forest);
-      position: relative; overflow: hidden;
-    }
-    .values-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 80% 50%, rgba(184,137,58,0.1) 0%, transparent 60%);
-    }
-    .values-inner { position: relative; z-index: 1; }
-    .values-section .section-label { color: var(--gold-light); text-align: center; display: block; }
-    .values-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.75rem, 3vw, 2.375rem);
-      font-weight: 700; font-style: italic;
-      color: var(--white); text-align: center;
-      margin-bottom: 3rem;
-    }
-    .values-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+    /* ── TIPS ── */
+    .tips-section { padding: 4rem 0; background: var(--cream); }
+    .tips-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-    .value-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 2rem 1.75rem;
-    }
-    .value-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .value-card h4 {
-      font-size: 0.9375rem; font-weight: 500;
-      color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;
-    }
-    .value-card p {
-      font-size: 0.8125rem; line-height: 1.7;
-      color: rgba(255,255,255,0.5);
-    }
-
-    /* ── NOT FOR ── */
-    .notfor-section {
-      padding: 5rem 0;
+    .tip-card {
       background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: all 0.2s;
     }
-    .notfor-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
+    .tip-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+    .tip-label {
+      display: inline-block;
+      background: var(--forest-pale);
+      color: var(--forest);
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 1rem;
     }
-    .notfor-inner h2 {
+    .tip-label.gold {
+      background: var(--gold-pale); color: var(--gold);
+    }
+    .tip-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem; font-weight: 700;
-      color: var(--ink); line-height: 1.2;
-      margin-bottom: 1.5rem;
+      font-size: 1.125rem; font-weight: 500;
+      color: var(--ink); margin-bottom: 0.75rem; line-height: 1.3;
     }
-    .notfor-inner > div > p {
-      font-size: 0.9375rem; line-height: 1.75; color: var(--ink-light);
-      margin-bottom: 1.5rem;
+    .tip-card p {
+      font-size: 0.875rem; line-height: 1.75; color: var(--ink-light);
     }
-    .notfor-list { list-style: none; }
-    .notfor-list li {
-      font-size: 0.875rem; color: var(--ink-mid);
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: flex-start; gap: 10px;
+    .tip-card ul {
+      margin-top: 0.75rem; padding-left: 1.25rem;
     }
-    .notfor-list li:last-child { border-bottom: none; }
-    .notfor-list .x { color: #c0392b; font-size: 0.75rem; margin-top: 2px; flex-shrink: 0; }
+    .tip-card li {
+      font-size: 0.875rem; line-height: 1.7; color: var(--ink-light);
+      margin-bottom: 4px;
+    }
 
-    .for-list { list-style: none; }
-    .for-list li {
-      font-size: 0.875rem; color: var(--ink-mid);
-      padding: 8px 0;
+    /* ── FAQ ── */
+    .faq-section { padding: 4rem 0; background: var(--cream); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: flex-start; gap: 10px;
     }
-    .for-list li:last-child { border-bottom: none; }
-    .for-list .check { color: var(--forest); font-size: 0.75rem; margin-top: 2px; flex-shrink: 0; }
+    .faq-question {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      font-size: 0.9375rem; font-weight: 500; color: var(--ink);
+      background: none; border: none; width: 100%;
+      text-align: left; font-family: 'DM Sans', sans-serif;
+      gap: 1rem;
+    }
+    .faq-question:hover { color: var(--forest); }
+    .faq-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--border-strong);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--ink-light); flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .faq-item.open .faq-icon {
+      background: var(--forest); border-color: var(--forest);
+      color: var(--white);
+    }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer p {
+      font-size: 0.9rem; line-height: 1.8;
+      color: var(--ink-light); padding-bottom: 1.25rem;
+    }
 
     @media (max-width: 900px) {
-      .about-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-photo-wrap { position: static; }
-      .edge-grid { grid-template-columns: 1fr; }
-      .values-grid { grid-template-columns: 1fr; }
-      .notfor-inner { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .tips-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -244,8 +256,8 @@
   <ul class="nav-links">
     <li><a href="index.html" data-tr="nav_home">Ana Sayfa</a></li>
     <li><a href="programs.html" data-tr="nav_programs">Programlar</a></li>
-    <li><a href="about.html" class="active" data-tr="nav_about">Hakkımızda</a></li>
-    <li><a href="community.html" data-tr="nav_community">Topluluk</a></li>
+    <li><a href="about.html" data-tr="nav_about">Hakkımızda</a></li>
+    <li><a href="community.html" class="active" data-tr="nav_community">Topluluk</a></li>
     <li><a href="contact.html" data-tr="nav_contact">İletişim</a></li>
   </ul>
   <div class="nav-right">
@@ -259,207 +271,257 @@
 
 <div class="page-wrap">
 
-  <!-- ── ABOUT HERO ── -->
-  <section class="about-hero">
-    <div class="about-hero-inner">
-      <div>
-        <p class="about-eyebrow">Eğitmen & Kurucu</p>
-        <h1>İngilizceyi içeriden <em>ve</em> dışarıdan bilen biri.</h1>
-        <p class="about-lead">
-          Anadili İngilizce olan ve 7+ yıldır İstanbul'da yaşayan, Türkçe'yi mesleki düzeyde konuşan bir eğitmen olarak öğrencilerimin hangi noktada takıldığını tam olarak anlıyorum — dil transferleri, yaygın hatalar, kültürel nüanslar dahil.
-        </p>
-        <p class="about-lead" style="margin-bottom: 1.5rem;">
-          Sınıfında en başarılı mezun olarak bölümü bitirdim. Öğrenme psikolojisi ve nöropskoloji üzerine derin bir ilgim var; her metodoloji kararının arkasında araştırma var.
-        </p>
-        <div class="credential-row">
-          <span class="cred-tag">Anadil İngilizce</span>
-          <span class="cred-tag">Türkçe B2+</span>
-          <span class="cred-tag">Bölüm birincisi</span>
-          <span class="cred-tag">İstanbul, 7+ yıl</span>
-          <span class="cred-tag">Öğrenme psikolojisi</span>
-        </div>
-      </div>
-
-      <div class="about-photo-wrap">
-        <div class="about-photo">
-          <div class="photo-placeholder">
-            <div class="photo-initials">CE</div>
-            <p class="photo-note">Fotoğraf yakında eklenecek</p>
-          </div>
-        </div>
-        <p class="about-caption">Kozyatağı ofisinde birebir ders</p>
-      </div>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label">Topluluk</p>
+      <h1>Öğrenme burada bitmez.</h1>
+      <p>Dersler arasında da büyüyün. Uzman ipuçları, öğrenci hikayeleri, kaynaklar ve merak ettiğiniz her şey.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- ── ORIGIN STORY ── -->
-  <section class="story-section">
-    <div class="container">
-      <div class="story-inner">
-        <span class="section-label">Hikaye</span>
-        <h2>Neden bu okulu kurdum?</h2>
-
-        <div class="story-block">
-          <div class="story-line"></div>
-          <p class="story-text">
-            Kariyerime <strong>işe alım ve insan kaynakları</strong> alanında başladım. Uluslararası müşterilerle çalışırken fark ettim: Özgeçmişinde "C1 seviyesi İngilizce" yazan pek çok aday, kendini rahat ifade etmekte zorlanıyordu. <strong>Nitelikli insanlar, tek bir dil engeli yüzünden hayallerindeki pozisyonlara ulaşamıyordu.</strong>
-          </p>
-        </div>
-
-        <div class="story-block">
-          <div class="story-line"></div>
-          <p class="story-text">
-            Bu gözlem beni harekete geçirdi ve İngilizce öğretimine geçiş yaptım. Birçok farklı kurumda ders verdim — ve orada da görüldü: <strong>mevcut müfredatların büyük çoğunluğu gerçek hayatta kullanılamayan, yapay bilgiler üretiyor.</strong> Öğrenciler sınıfta öğrendiklerini kapıdan çıktıklarında kullanamıyordu.
-          </p>
-        </div>
-
-        <div class="story-block">
-          <div class="story-line"></div>
-          <p class="story-text">
-            O kurslarda kendi materyallerimi ve yöntemimi test etmeye başladım. <strong>Öğrencilerdeki dönüşümü gördüğümde</strong> — dil kısıtlaması olmadan kendilerini ifade edebildiklerinde — Cozy English'i kurmaya karar verdim.
-          </p>
-        </div>
-      </div>
+  <!-- ── TAB BAR ── -->
+  <div class="tab-bar">
+    <div class="tab-bar-inner">
+      <button class="tab-btn active" data-tab="blog">Blog & Kaynaklar</button>
+      <button class="tab-btn" data-tab="testimonials">Öğrenci Hikayeleri</button>
+      <button class="tab-btn" data-tab="tips">Ücretsiz İpuçları</button>
+      <button class="tab-btn" data-tab="faq">Sık Sorulan</button>
     </div>
-  </section>
+  </div>
 
-  <!-- ── COMPETITIVE EDGE ── -->
-  <section class="edge-section">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Fark yaratan perspektifler</p>
-        <h2 class="section-title">Türkçe konuşanlar için özel avantaj</h2>
-        <p class="section-sub">Hem İngilizce'yi hem Türkçe'yi bilen biri olarak öğrencilerimin tam nerede takıldığını biliyorum.</p>
-      </div>
+  <!-- ── BLOG PANEL ── -->
+  <div id="panel-blog" class="tab-panel active">
+    <section class="blog-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Makaleler</p>
+          <h2 class="section-title">Okuyun, düşünün, büyüyün</h2>
+        </div>
 
-      <div class="edge-grid">
-        <div class="edge-card">
-          <div class="edge-num">01</div>
-          <div>
-            <h4>Türkçe dil transferini anlıyorum</h4>
-            <p>Türkçe'nin İngilizce öğrenimini nasıl etkilediğini birinci elden biliyorum. Yaygın çeviri hataları, sözdizimi karışıklıkları, telaffuz tuzakları — hepsini öngörüp önlüyorum.</p>
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <span class="blog-card-img-text">Be</span>
+              <span class="blog-tag">İş İngilizcesi</span>
+            </div>
+            <div class="blog-body">
+              <p class="blog-meta">Yakında</p>
+              <h3>Türk Yöneticiler için İş İngilizcesi: Toplantıdan Sunuma</h3>
+              <p>C-suite iletişiminde sizi öne çıkaracak dil kalıpları ve stratejiler.</p>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-card-img gold">
+              <span class="blog-card-img-text">Pr</span>
+              <span class="blog-tag">Telaffuz</span>
+            </div>
+            <div class="blog-body">
+              <p class="blog-meta">Yakında</p>
+              <h3>Türkçe Konuşanlar için Telaffuz Taktikleri</h3>
+              <p>Türkçe'nin yarattığı en yaygın telaffuz hatalarını düzeltmenin yolu.</p>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-card-img cream">
+              <span class="blog-card-img-text" style="color: rgba(44,74,62,0.3);">Bs</span>
+              <span class="blog-tag" style="background:rgba(44,74,62,0.2); color: var(--forest);">Eğitim</span>
+            </div>
+            <div class="blog-body">
+              <p class="blog-meta">Yakında</p>
+              <h3>İngiliz Boarding School Mülakatı Nasıl Geçilir?</h3>
+              <p>Başvurudan mülakata — tam hazırlık rehberi.</p>
+            </div>
           </div>
         </div>
-        <div class="edge-card">
-          <div class="edge-num">02</div>
-          <div>
-            <h4>Kültürel bağlamı hesaba katıyorum</h4>
-            <p>Türk iş kültürü ile uluslararası iş etiği arasındaki ince farkları biliyorum. Doğru kelimeleri doğru bağlamda kullanmayı öğretiyorum.</p>
-          </div>
-        </div>
-        <div class="edge-card">
-          <div class="edge-num">03</div>
-          <div>
-            <h4>Gerçek anlamda iki dilli içerik</h4>
-            <p>İçerik, açıklamalar ve ödevler Türkçe konuşanlar için bilinçli olarak tasarlandı. Jenerik kurs materyali değil.</p>
-          </div>
-        </div>
-        <div class="edge-card">
-          <div class="edge-num">04</div>
-          <div>
-            <h4>Özgüven psikolojisini biliyorum</h4>
-            <p>Dil öğrenimi sadece bilgi değil, psikolojik engelleri aşmak demek. Güvenli ve rahat bir ortamda sizi hem dil hem özgüven açısından büyütüyorum.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── VALUES ── -->
-  <section class="values-section">
-    <div class="container values-inner">
-      <span class="section-label">Değerlerimiz</span>
-      <h2>Cozy English'in temel ilkeleri</h2>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-icon">🔬</div>
-          <h4>Araştırma önce gelir</h4>
-          <p>Her yöntem, her alıştırma, her içerik kararı pedagojik araştırmaya dayanır. İçgüdüye değil, kanıta güveniyoruz.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">🤝</div>
-          <h4>Öğrenci odaklı ortaklık</h4>
-          <p>Öğretmen-öğrenci değil, partner ilişkisi. Sizin hedefiniz bizim hedefimiz; süreç boyunca birlikte ilerleriz.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">🌿</div>
-          <h4>Konfüzyon yok, baskı yok</h4>
-          <p>Öğrenme süreci güvenli, rahat ve net olmalı. Kafa karışıklığı verimli öğrenmenin düşmanıdır.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">📈</div>
-          <h4>Gerçek hayat uygulaması</h4>
-          <p>Sınıfta öğrendiğiniz, sınıfın dışında işe yaramalı. Her içerik gerçek bir senaryoyu yansıtır.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">💎</div>
-          <h4>Kalite, taahhüt gerektirir</h4>
-          <p>Gerçek ilerleme iki tarafın da çaba göstermesini gerektirir. Ciddi öğrenciler için ciddi bir program.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">🧠</div>
-          <h4>Özgüven de hedefimiz</h4>
-          <p>Bilgi önemli ama yeterli değil. İngilizce'yi özgüvenle kullanabilmek, eğitimin ayrılmaz bir parçasıdır.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOR / NOT FOR ── -->
-  <section class="notfor-section">
-    <div class="container">
-      <div class="notfor-inner">
-        <div>
-          <h2>Bu program sizin için <em>değil</em> eğer…</h2>
-          <p>Herkes için değil — ve bu kasıtlı bir tercih. Doğru eşleşme, uzun vadede ikimiz için de daha iyi sonuç demek.</p>
-          <ul class="notfor-list">
-            <li>
-              <span class="x">✕</span>
-              <span>İkinci bir dil öğrenmek için gereken gerçek çabayı anlamıyorsanız</span>
-            </li>
-            <li>
-              <span class="x">✕</span>
-              <span>Tüm sorumluluğun öğretmene ait olduğunu düşünüyorsanız</span>
-            </li>
-            <li>
-              <span class="x">✕</span>
-              <span>Son dakika iptallerini ya da mazeretleri olağan görüyorsanız</span>
-            </li>
-            <li>
-              <span class="x">✕</span>
-              <span>Hızlı ve kolay bir "hack" arıyorsanız</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2>Tam size göre eğer…</h2>
-          <p style="font-size:0.9375rem; line-height:1.75; color:var(--ink-light); margin-bottom:1.5rem;">Hedefinize ulaşmak için doğru desteğe ve yapıya ihtiyaç duyuyorsanız.</p>
-          <ul class="for-list">
-            <li>
-              <span class="check">✓</span>
-              <span>İlerleme kaydedebileceğiniz disiplinli bir programa hazırsanız</span>
-            </li>
-            <li>
-              <span class="check">✓</span>
-              <span>Gerçek hayatta kullanabileceğiniz İngilizce istiyorsanız</span>
-            </li>
-            <li>
-              <span class="check">✓</span>
-              <span>Geçmiş kursların sizi hayal kırıklığına uğrattığını hissediyorsanız</span>
-            </li>
-            <li>
-              <span class="check">✓</span>
-              <span>Hem bilginizi hem özgüveninizi birlikte geliştirmek istiyorsanız</span>
-            </li>
-          </ul>
-          <div style="margin-top: 2rem;">
-            <a href="contact.html" class="btn-primary">Demo Derse Başvur →</a>
+        <div class="blog-soon">
+          <p>İçerikler yakında yayınlanacak. Yeni yazılardan haberdar olmak için bizimle iletişime geçin.</p>
+          <div style="margin-top: 1.5rem;">
+            <a href="contact.html" class="btn-secondary">Bizi takip et →</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
+  <!-- ── TESTIMONIALS PANEL ── -->
+  <div id="panel-testimonials" class="tab-panel">
+    <section class="testi-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Öğrenci hikayeleri</p>
+          <h2 class="section-title">Gerçek dönüşümler</h2>
+        </div>
+
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Yıllardır kurs kurs dolaştım ama hiçbiri işe yaramadı. Cozy English ile ilk kez sınıf dışında da İngilizce konuşabildiğimi fark ettim.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">AK</div>
+              <div>
+                <p class="testi-name">Yakında paylaşılacak</p>
+                <p class="testi-role">Öğrenci yorumları ekleniyor</p>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Sunum öncesi paniğim artık yok. Müdürlerime İngilizce sunum yaparken kendimden emin hissediyorum.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">MY</div>
+              <div>
+                <p class="testi-name">Yakında paylaşılacak</p>
+                <p class="testi-role">Öğrenci yorumları ekleniyor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-placeholder">
+          <p>Öğrenci yorumları çok yakında burada olacak. Siz de kendi başarı hikayenizi yazmak ister misiniz?</p>
+          <div style="margin-top: 1.5rem;">
+            <a href="contact.html" class="btn-primary">Demo Ders Al →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── TIPS PANEL ── -->
+  <div id="panel-tips" class="tab-panel">
+    <section class="tips-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Ücretsiz ipuçları</p>
+          <h2 class="section-title">Derslerde en çok öğrettiğimizden</h2>
+          <p class="section-sub">Hemen uygulayabileceğiniz, araştırma destekli pratik ipuçları.</p>
+        </div>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <span class="tip-label">Konuşma</span>
+            <h3>Bir sonraki İngilizce toplantıya nasıl hazırlanırsınız?</h3>
+            <p>Toplantıdan önce söyleyeceklerinizi Türkçe değil, İngilizce düşünerek hazırlayın. Sadece 10 dakika bu hazırlık akıcılığınızı dramatik biçimde artırır.</p>
+            <ul>
+              <li>3–5 anahtar cümleyi önceden prova edin</li>
+              <li>"I'd like to add…" gibi köprü ifadeleri kullanın</li>
+              <li>Bilmediğiniz kelimeyi tarif etmekten çekinmeyin</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <span class="tip-label gold">Telaffuz</span>
+            <h3>Türkçe konuşanların en sık yaptığı telaffuz hatası</h3>
+            <p>İngilizce'de sesli harfler Türkçe'den çok farklı. Özellikle "a" sesi ve /ɪ/ vs /iː/ ayrımı büyük fark yaratır. Günde 5 dakika sesli okuma bunun çözümü.</p>
+            <ul>
+              <li>"ship" vs "sheep" gibi minimal çiftler çalışın</li>
+              <li>Kendi sesinizi kaydedin ve dinleyin</li>
+              <li>Vurgu yanlış yerdeyse anlam değişir</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <span class="tip-label">Kelime Bilgisi</span>
+            <h3>Kelime ezberlemek neden işe yaramaz?</h3>
+            <p>Beyin kelimeleri bağlam içinde öğrenir. İzole liste ezberlemek kısa vadede işe yarasa da uzun vadede unutulur. Bunun yerine cümle içinde öğrenin.</p>
+            <ul>
+              <li>Her yeni kelimeyi 3 farklı cümlede kullanın</li>
+              <li>Günlük hayatınızla bağlantı kurun</li>
+              <li>Spaced repetition uygulamaları kullanın</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <span class="tip-label">Özgüven</span>
+            <h3>Konuşurken donup kalıyorsanız — işte nedeni</h3>
+            <p>Dil kaygısı gerçek bir psikolojik durum. Beyniniz "hata yapma" baskısıyla donar. Çözüm mükemmeli beklemek değil, konuşmak.</p>
+            <ul>
+              <li>Hatayı düzeltmek için durmayın, devam edin</li>
+              <li>"Mükemmel" düşmanı "yeterince iyi"dir</li>
+              <li>Güvenli ortamda pratik, kaygıyı azaltır</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FAQ PANEL ── -->
+  <div id="panel-faq" class="tab-panel">
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Sık sorulan sorular</p>
+          <h2 class="section-title">Aklınızdaki sorular</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Demo ders gerçekten ücretsiz mi?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Evet, tamamen ücretsiz ve taahhütsüz. 30 dakikalık demo dersinde seviyenizi değerlendiriyor, hedeflerinizi konuşuyor ve size uygun programı belirliyoruz. Herhangi bir ödeme gerektirmiyor.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Fiyatlar nasıl belirleniyor?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Fiyatlandırma, demo dersin ardından programınıza, sıklığınıza ve hedeflerinize göre belirleniyor. Ödeme paket bazlı yapılıyor. Fiyatları doğrudan demo dersinde konuşuyoruz.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Dersler online mı, yüz yüze mi?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Her ikisi de mümkün. Kozyatağı, Kadıköy ofisinde yüz yüze ders yapabilirsiniz (metro, otobüs ve araçla kolay erişim). Tamamen online veya hibrit seçeneği de sunuyoruz.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Hangi İngilizce seviyesinden başlayabilirim?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Her seviyeden. Başlangıç seviyesinden ileri seviyeye kadar çalışıyoruz. Diagnostic sınavla tam seviyeniz belirleniyor ve program ona göre oluşturuluyor.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Ders iptali nasıl yapılıyor?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Belirli koşullar altında ders iptali veya erteleme yapılabilir. Detaylı iptal politikası demo dersinde paylaşılıyor. Karşılıklı saygı ve planlama ön şartımız.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Ne kadar sürede ilerleme göreceğim?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Bu kişiden kişiye ve hedefe göre değişiyor. Haftalık ders sıklığına ve ödev tamamlamaya bağlı olarak çoğu öğrenci 6–8 hafta içinde somut gelişim hissediyor. CEFR seviye testleriyle ilerlemeniz ölçülüyor.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Grup dersi veriyor musunuz?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Hayır. Cozy English yalnızca birebir, 1:1 dersler veriyor. Kişiselleştirilmiş program ve maksimum konuşma pratiği ancak bu şekilde mümkün.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
 
 </div>
 
@@ -495,5 +557,35 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // Tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-icon').textContent = '+';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.querySelector('.faq-icon').textContent = '×';
+      }
+    });
+  });
+</script>
 </body>
 </html>
