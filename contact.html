@@ -6,225 +6,258 @@
   <title>İletişim — Cozy English</title>
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .contact-hero { background: var(--white); padding: 4.5rem 2rem 0; }
+    /* ── CONTACT HERO ── */
+    .contact-hero {
+      background: var(--cream);
+      padding: 4rem 2rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
     .contact-hero-inner {
       max-width: 1140px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center; padding-bottom: 5rem;
-      border-bottom: 1px solid var(--border);
+      gap: 5rem; align-items: center;
     }
-    .contact-eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .contact-eyebrow {
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
     .contact-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.12;
-      color: var(--ink); letter-spacing: -0.02em; margin-bottom: 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.875rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--ink); letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
     }
     .contact-hero h1 em { font-style: italic; color: var(--forest); }
-    .contact-hero > div > div > p { font-size: 1rem; line-height: 1.85; color: var(--ink-light); margin-bottom: 2rem; }
-
+    .contact-hero p {
+      font-size: 1rem; line-height: 1.8; color: var(--ink-light);
+      margin-bottom: 2rem;
+    }
     .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
     .contact-method {
-      display: flex; align-items: center; gap: 16px;
-      padding: 1.125rem 1.25rem;
-      background: var(--pearl); border: 1px solid var(--border);
-      border-radius: 12px; text-decoration: none; transition: all 0.3s;
+      display: flex; align-items: center; gap: 14px;
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s;
     }
-    .contact-method:hover { border-color: var(--border-gold); box-shadow: var(--shadow-md); transform: translateX(5px); background: var(--white); }
-    .method-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+    .contact-method:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow);
+      transform: translateX(4px);
+    }
+    .method-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; flex-shrink: 0;
+    }
     .method-icon.wa { background: #e8f5e9; }
     .method-icon.ph { background: var(--forest-pale); }
     .method-icon.em { background: var(--gold-pale); }
     .method-label { font-size: 0.75rem; color: var(--ink-light); margin-bottom: 1px; }
     .method-value { font-size: 0.9375rem; font-weight: 500; color: var(--ink); }
 
-    /* Demo banner */
+    /* ── DEMO EMPHASIS ── */
     .demo-banner {
-      background: var(--forest); padding: 2.75rem;
-      border-radius: 16px; position: relative; overflow: hidden;
+      background: var(--forest);
+      padding: 2.5rem;
+      border-radius: 12px;
+      position: relative; overflow: hidden;
     }
     .demo-banner::before {
-      content: ''; position: absolute; inset: 0;
+      content: '';
+      position: absolute; inset: 0;
       background: radial-gradient(ellipse at 80% 50%, rgba(184,137,58,0.18) 0%, transparent 60%);
     }
     .demo-banner-inner { position: relative; z-index: 1; }
     .demo-banner h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; font-weight: 600; font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem; font-weight: 700; font-style: italic;
       color: var(--white); margin-bottom: 0.75rem;
     }
-    .demo-banner p { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
-    .demo-list { list-style: none; margin-bottom: 1.75rem; }
-    .demo-list li { font-size: 0.8125rem; color: rgba(255,255,255,0.75); padding: 5px 0; display: flex; align-items: center; gap: 10px; }
+    .demo-banner p { font-size: 0.875rem; line-height: 1.7; color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; }
+    .demo-list { list-style: none; margin-bottom: 1.5rem; }
+    .demo-list li {
+      font-size: 0.8125rem; color: rgba(255,255,255,0.75);
+      padding: 4px 0;
+      display: flex; align-items: center; gap: 8px;
+    }
     .demo-list li::before { content: '✓'; color: var(--gold-light); font-weight: 500; }
 
-    /* Form section */
-    .form-section { padding: 5.5rem 0; background: var(--pearl); }
-    .form-wrap { max-width: 1140px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1.25fr; gap: 5rem; }
+    /* ── FORM SECTION ── */
+    .form-section { padding: 5rem 0; background: var(--white); }
+    .form-wrap {
+      max-width: 1140px; margin: 0 auto;
+      padding: 0 2rem;
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+    }
     .form-info h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 600; color: var(--ink); margin-bottom: 1rem; line-height: 1.2;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.875rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 1rem; line-height: 1.2;
     }
-    .form-info p { font-size: 0.9375rem; line-height: 1.85; color: var(--ink-light); margin-bottom: 2rem; }
+    .form-info p { font-size: 0.9375rem; line-height: 1.8; color: var(--ink-light); margin-bottom: 2rem; }
 
-    .info-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem;
-      transition: all 0.2s;
+    .location-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
     }
-    .info-card:hover { border-color: var(--border-gold); }
-    .info-card h4 { font-size: 0.875rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
-    .info-card p { font-size: 0.875rem; line-height: 1.7; color: var(--ink-light); }
+    .location-card h4 {
+      font-size: 0.875rem; font-weight: 500; color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .location-card p { font-size: 0.875rem; line-height: 1.7; color: var(--ink-light); }
     .transport-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
-    .transport-tag { background: var(--forest-pale); border: 1px solid rgba(44,74,62,0.15); border-radius: 20px; font-size: 0.75rem; color: var(--forest); font-weight: 500; padding: 3px 10px; }
+    .transport-tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.75rem; color: var(--forest); font-weight: 500;
+      padding: 3px 10px;
+    }
 
-    /* Form */
+    /* ── FORM ── */
     .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .field { display: flex; flex-direction: column; gap: 7px; }
-    .field label { font-size: 0.8125rem; font-weight: 500; color: var(--ink-mid); }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 0.8125rem; font-weight: 500; color: var(--ink-mid);
+    }
     .field input, .field select, .field textarea {
-      padding: 12px 15px;
-      border: 1.5px solid var(--border-gold);
-      border-radius: 9px; font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem; color: var(--ink); background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: var(--ink);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
     }
     .field input:focus, .field select:focus, .field textarea:focus {
       border-color: var(--forest);
-      box-shadow: 0 0 0 3px rgba(44,74,62,0.08);
     }
-    .field textarea { min-height: 110px; resize: vertical; }
+    .field textarea { min-height: 100px; resize: vertical; }
     .field select { appearance: none; cursor: pointer; }
-    .form-note { font-size: 0.8125rem; color: var(--ink-light); line-height: 1.65; }
+
+    .form-note {
+      font-size: 0.8125rem; color: var(--ink-light); line-height: 1.6;
+    }
 
     .submit-btn {
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 15px;
-      background: var(--forest); color: var(--white);
-      border: none; border-radius: 9px;
-      font-family: 'Outfit', sans-serif; font-size: 0.9375rem; font-weight: 500;
-      cursor: pointer; transition: all 0.25s;
+      padding: 14px;
+      background: var(--forest);
+      color: var(--white);
+      border: none; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9375rem; font-weight: 500;
+      cursor: pointer; transition: all 0.2s;
     }
-    .submit-btn:hover { background: var(--forest-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(44,74,62,0.25); }
+    .submit-btn:hover { background: var(--forest-light); transform: translateY(-1px); }
 
-    .success-msg { display: none; background: var(--forest-pale); border: 1px solid rgba(44,74,62,0.2); border-radius: 12px; padding: 2rem; text-align: center; }
+    .success-msg {
+      display: none;
+      background: var(--forest-pale);
+      border: 1px solid rgba(44,74,62,0.25);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
     .success-msg.visible { display: block; }
-    .success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.375rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem; }
-    .success-msg p { font-size: 0.875rem; color: var(--forest); opacity: 0.8; line-height: 1.7; }
+    .success-msg h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 500; color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+    .success-msg p { font-size: 0.875rem; color: var(--forest); opacity: 0.8; }
 
-    /* MAP SECTION */
-    .map-section { padding: 5.5rem 0; background: var(--white); }
-    .map-container {
-      border-radius: 16px; overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      position: relative;
+    /* ── WHAT TO EXPECT ── */
+    .expect-section { padding: 5rem 0; background: var(--cream); }
+    .expect-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
     }
-    .map-container iframe { display: block; width: 100%; height: 420px; border: none; }
-    .map-overlay {
-      position: absolute; top: 1.25rem; left: 1.25rem;
-      background: var(--white); border-radius: 12px;
-      padding: 1rem 1.25rem; box-shadow: var(--shadow-md);
-      max-width: 220px;
-    }
-    .map-overlay h4 { font-size: 0.875rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .map-overlay p { font-size: 0.8rem; color: var(--ink-light); line-height: 1.5; }
-    .map-directions {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 0.75rem; font-size: 0.8rem; font-weight: 500;
-      color: var(--forest); text-decoration: none; transition: gap 0.2s;
-    }
-    .map-directions:hover { gap: 8px; }
-
-    /* What to expect */
-    .expect-section { padding: 5.5rem 0; background: var(--pearl); }
-    .expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
     .expect-item { text-align: center; }
-    .expect-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 400; font-style: italic; color: var(--gold); margin-bottom: 0.75rem; opacity: 0.45; }
-    .expect-item h4 { font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
-    .expect-item p { font-size: 0.875rem; line-height: 1.75; color: var(--ink-light); }
+    .expect-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.25rem; font-weight: 400; font-style: italic;
+      color: var(--gold); margin-bottom: 0.75rem; opacity: 0.5;
+    }
+    .expect-item h4 { font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+    .expect-item p { font-size: 0.875rem; line-height: 1.7; color: var(--ink-light); }
 
     @media (max-width: 900px) {
       .contact-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .expect-grid { grid-template-columns: 1fr; }
-      .map-overlay { display: none; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <div class="logo-mark"></div>
-    <div class="logo-text">
-      <span class="logo-text-top">Cozy English</span>
-      <span class="logo-text-bottom">İstanbul · 1:1 Eğitim</span>
-    </div>
-  </a>
+  <a href="index.html" class="nav-logo">Cozy <span>English</span></a>
   <ul class="nav-links">
-    <li><a href="index.html" data-i18n="nav_home">Ana Sayfa</a></li>
-    <li><a href="programs.html" data-i18n="nav_programs">Programlar</a></li>
-    <li><a href="about.html" data-i18n="nav_about">Hakkımızda</a></li>
-    <li><a href="community.html" data-i18n="nav_community">Topluluk</a></li>
-    <li><a href="contact.html" data-i18n="nav_contact">İletişim</a></li>
+    <li><a href="index.html" data-tr="nav_home">Ana Sayfa</a></li>
+    <li><a href="programs.html" data-tr="nav_programs">Programlar</a></li>
+    <li><a href="about.html" data-tr="nav_about">Hakkımızda</a></li>
+    <li><a href="community.html" data-tr="nav_community">Topluluk</a></li>
+    <li><a href="contact.html" class="active" data-tr="nav_contact">İletişim</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
-      <button class="lang-btn" data-lang="tr">TR</button>
+      <button class="lang-btn active" data-lang="tr">TR</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    <a href="contact.html" class="btn-nav" data-i18n="nav_cta">Ücretsiz Demo</a>
-    <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    <a href="contact.html" class="btn-nav">Ücretsiz Demo</a>
   </div>
 </nav>
 
-<div class="mobile-menu">
-  <a href="index.html" data-nav data-i18n="nav_home">Ana Sayfa</a>
-  <a href="programs.html" data-nav data-i18n="nav_programs">Programlar</a>
-  <a href="about.html" data-nav data-i18n="nav_about">Hakkımızda</a>
-  <a href="community.html" data-nav data-i18n="nav_community">Topluluk</a>
-  <a href="contact.html" data-nav data-i18n="nav_contact">İletişim</a>
-  <div class="mobile-menu-bottom">
-    <a href="contact.html" class="btn-primary">Ücretsiz Demo</a>
-    <div class="lang-toggle">
-      <button class="lang-btn" data-lang="tr">TR</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-
 <div class="page-wrap">
 
+  <!-- ── CONTACT HERO ── -->
   <section class="contact-hero">
     <div class="contact-hero-inner">
-      <div class="reveal">
-        <span class="contact-eyebrow">İletişim</span>
+      <div>
+        <p class="contact-eyebrow">İletişim</p>
         <h1>Ücretsiz demo dersinizi <em>bugün</em> ayarlayın.</h1>
-        <div>
-          <p>30 dakikalık tanışma dersi. Herhangi bir taahhüt yok. Seviyenizi değerlendiriyor, hedeflerinizi konuşuyor ve size uygun programı belirliyoruz.</p>
-        </div>
+        <p>
+          30 dakikalık tanışma dersi. Herhangi bir taahhüt yok. Seviyenizi değerlendiriyoruz, hedeflerinizi konuşuyoruz ve size uygun programı belirliyoruz.
+        </p>
+
         <div class="contact-methods">
-          <!-- ✅ WhatsApp — replace 90XXXXXXXXXX with real number, no spaces/dashes -->
-          <a href="https://wa.me/90XXXXXXXXXX" target="_blank" rel="noopener" class="contact-method">
+          <a href="https://wa.me/90XXXXXXXXXX" target="_blank" class="contact-method">
             <div class="method-icon wa">💬</div>
-            <div><p class="method-label">WhatsApp ile yaz</p><p class="method-value">+90 (XXX) XXX XX XX</p></div>
+            <div>
+              <p class="method-label">WhatsApp ile yaz</p>
+              <p class="method-value">+90 (XXX) XXX XX XX</p>
+            </div>
           </a>
-          <!-- ✅ Phone — replace with real number -->
           <a href="tel:+90XXXXXXXXXX" class="contact-method">
             <div class="method-icon ph">📞</div>
-            <div><p class="method-label">Telefon ile ara</p><p class="method-value">+90 (XXX) XXX XX XX</p></div>
+            <div>
+              <p class="method-label">Telefon ile ara</p>
+              <p class="method-value">+90 (XXX) XXX XX XX</p>
+            </div>
           </a>
-          <!-- ✅ Email — clicking opens default mail app -->
           <a href="mailto:info@cozyenglish.com" class="contact-method">
             <div class="method-icon em">✉️</div>
-            <div><p class="method-label">E-posta gönder</p><p class="method-value">info@cozyenglish.com</p></div>
+            <div>
+              <p class="method-label">E-posta gönder</p>
+              <p class="method-value">info@cozyenglish.com</p>
+            </div>
           </a>
         </div>
       </div>
 
-      <div class="reveal reveal-delay-2">
+      <div>
         <div class="demo-banner">
           <div class="demo-banner-inner">
             <h3>Ücretsiz Demo Ders'te neler olur?</h3>
@@ -243,14 +276,14 @@
     </div>
   </section>
 
-  <!-- ── FORM ── -->
+  <!-- ── FORM + INFO ── -->
   <section class="form-section" id="form">
     <div class="form-wrap">
-      <div class="form-info reveal">
+      <div class="form-info">
         <h2>Bize ulaşın</h2>
         <p>Formu doldurun, en kısa sürede size geri dönelim ve demo dersinizi planlayalım.</p>
 
-        <div class="info-card">
+        <div class="location-card">
           <h4>📍 Yüz yüze ders lokasyonu</h4>
           <p>Kozyatağı, Kadıköy — İstanbul</p>
           <div class="transport-tags">
@@ -260,25 +293,40 @@
           </div>
         </div>
 
-        <div class="info-card">
+        <div class="location-card">
           <h4>🌐 Online ders de mevcut</h4>
           <p>Türkiye'nin herhangi bir yerinden veya yurt dışından birebir online ders alabilirsiniz.</p>
         </div>
 
-        <div class="info-card" style="background:var(--gold-pale);border-color:var(--border-gold);">
+        <div class="location-card" style="background: var(--gold-pale); border-color: var(--border-strong);">
           <h4>⏰ Yanıt süresi</h4>
           <p>Genellikle 24 saat içinde yanıt veriyoruz.</p>
         </div>
       </div>
 
-      <div class="reveal reveal-delay-2">
+      <div>
         <form class="contact-form" id="contactForm">
           <div class="form-row">
-            <div class="field"><label for="fname">Ad *</label><input type="text" id="fname" placeholder="Adınız" required /></div>
-            <div class="field"><label for="lname">Soyad *</label><input type="text" id="lname" placeholder="Soyadınız" required /></div>
+            <div class="field">
+              <label for="fname">Ad *</label>
+              <input type="text" id="fname" placeholder="Adınız" required />
+            </div>
+            <div class="field">
+              <label for="lname">Soyad *</label>
+              <input type="text" id="lname" placeholder="Soyadınız" required />
+            </div>
           </div>
-          <div class="field"><label for="email">E-posta *</label><input type="email" id="email" placeholder="ornek@email.com" required /></div>
-          <div class="field"><label for="phone">Telefon (WhatsApp tercihli)</label><input type="tel" id="phone" placeholder="+90 5XX XXX XX XX" /></div>
+
+          <div class="field">
+            <label for="email">E-posta *</label>
+            <input type="email" id="email" placeholder="ornek@email.com" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Telefon (WhatsApp tercihli)</label>
+            <input type="tel" id="phone" placeholder="+90 5XX XXX XX XX" />
+          </div>
+
           <div class="field">
             <label for="goal">Hedef program</label>
             <select id="goal">
@@ -289,6 +337,7 @@
               <option>Emin değilim, öneri istiyorum</option>
             </select>
           </div>
+
           <div class="field">
             <label for="level">Tahmini İngilizce seviyeniz</label>
             <select id="level">
@@ -299,10 +348,19 @@
               <option>Bilmiyorum</option>
             </select>
           </div>
-          <div class="field"><label for="message">Mesajınız</label><textarea id="message" placeholder="Hedeflerinizi, sorularınızı veya öğrenme geçmişinizi kısaca anlatın…"></textarea></div>
-          <p class="form-note">Bilgileriniz yalnızca demo dersinizi planlamak için kullanılacak. Spam yok, taahhüt yok.</p>
+
+          <div class="field">
+            <label for="message">Mesajınız</label>
+            <textarea id="message" placeholder="Hedeflerinizi, sorularınızı veya öğrenme geçmişinizi kısaca anlatın…"></textarea>
+          </div>
+
+          <p class="form-note">
+            Bilgileriniz yalnızca demo dersinizi planlamak için kullanılacak. Spam yok, taahhüt yok.
+          </p>
+
           <button type="submit" class="submit-btn">Demo Ders Talep Et →</button>
         </form>
+
         <div class="success-msg" id="successMsg">
           <h3>Talebiniz alındı!</h3>
           <p>En kısa sürede sizinle iletişime geçeceğiz. WhatsApp üzerinden de ulaşabilirsiniz.</p>
@@ -311,55 +369,26 @@
     </div>
   </section>
 
-  <!-- ── MAP ── -->
-  <section class="map-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Konum</span>
-        <h2 class="section-title">Neredeyiz?</h2>
-        <p class="section-sub">Kozyatağı, Kadıköy — metro, otobüs ve araçla kolayca ulaşabilirsiniz.</p>
-      </div>
-      <div class="map-container reveal">
-        <!-- OpenStreetMap embed — Kozyatağı, Kadıköy, Istanbul -->
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=29.0800%2C40.9650%2C29.1100%2C40.9850&layer=mapnik&marker=40.9750%2C29.0950"
-          allowfullscreen
-          loading="lazy"
-          title="Cozy English Konum — Kozyatağı, Kadıköy">
-        </iframe>
-        <div class="map-overlay">
-          <h4>📍 Cozy English</h4>
-          <p>Kozyatağı, Kadıköy<br>İstanbul</p>
-          <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Kozya%C4%B1ta%C4%9F%C4%B1%2C+Kad%C4%B1k%C3%B6y%2C+%C4%B0stanbul"
-            target="_blank" rel="noopener"
-            class="map-directions">
-            Yol tarifi al →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── WHAT TO EXPECT ── -->
   <section class="expect-section">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Süreç</span>
+      <div class="section-header">
+        <p class="section-label">Süreç</p>
         <h2 class="section-title">Başvurduktan sonra ne olur?</h2>
       </div>
+
       <div class="expect-grid">
-        <div class="expect-item reveal reveal-delay-1">
+        <div class="expect-item">
           <div class="expect-num">1</div>
           <h4>İletişime geçiyoruz</h4>
           <p>Başvurunuzu 24 saat içinde değerlendirip size WhatsApp veya e-posta ile ulaşıyoruz.</p>
         </div>
-        <div class="expect-item reveal reveal-delay-2">
+        <div class="expect-item">
           <div class="expect-num">2</div>
           <h4>Demo dersi planlıyoruz</h4>
           <p>Size uygun gün ve saati belirliyoruz. Yüz yüze veya online tercihini siz seçiyorsunuz.</p>
         </div>
-        <div class="expect-item reveal reveal-delay-3">
+        <div class="expect-item">
           <div class="expect-num">3</div>
           <h4>Yolculuk başlıyor</h4>
           <p>Demo dersin ardından kişisel programınız hazırlanıyor ve dersler başlıyor.</p>
@@ -373,19 +402,32 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo">
-        <div class="footer-logo-mark"></div>
-        <div class="logo-text">
-          <span class="footer-logo-text-top">Cozy English</span>
-          <span class="footer-logo-text-bottom">İstanbul · 1:1 Eğitim</span>
-        </div>
-      </div>
+      <div class="logo">Cozy <span>English</span></div>
       <p>Nöropskoloji ve öğrenme psikolojisi temelli, birebir İngilizce eğitimi. Kozyatağı, Kadıköy.</p>
     </div>
-    <div class="footer-col"><h4>Sayfalar</h4><ul><li><a href="index.html">Ana Sayfa</a></li><li><a href="programs.html">Programlar</a></li><li><a href="about.html">Hakkımızda</a></li><li><a href="community.html">Topluluk</a></li><li><a href="contact.html">İletişim</a></li></ul></div>
-    <div class="footer-col"><h4>İletişim</h4><ul><li><a href="contact.html">Demo Ders Ayarla</a></li><li><a href="https://wa.me/90XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp ile Yaz</a></li><li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    <div class="footer-col">
+      <h4>Sayfalar</h4>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="programs.html">Programlar</a></li>
+        <li><a href="about.html">Hakkımızda</a></li>
+        <li><a href="community.html">Topluluk</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>İletişim</h4>
+      <ul>
+        <li><a href="contact.html">Demo Ders Ayarla</a></li>
+        <li><a href="#">WhatsApp ile Yaz</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2025 Cozy English. Tüm hakları saklıdır.</span><span>Kozyatağı, Kadıköy — İstanbul</span></div>
+  <div class="footer-bottom">
+    <span>© 2025 Cozy English. Tüm hakları saklıdır.</span>
+    <span>Kozyatağı, Kadıköy — İstanbul</span>
+  </div>
 </footer>
 
 <script src="js/main.js"></script>
